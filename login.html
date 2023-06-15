@@ -1,105 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
     <script src="https://cdn.tailwindcss.com"></script>
-    <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&family=Inter:wght@400;500;600;700;800;900&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Poppins:wght@400;500;600;700;800&family=Source+Sans+Pro:wght@300;400;600;700;900&family=Work+Sans:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <title>Document</title>
-  </head>
-  <body class="bg-neutral-100">
-    <div
-      class="bg-[url('https://tuk-cdn.s3.amazonaws.com/can-uploader/Blend%20Group%201.png')]"
-    >
-      <div>
-        <div
-          class="grid lg:grid-cols-2 grid-cols-1 mx-auto lg:justify-items-end align-items-centeralign-items-center my-auto gap-y-10 lg:gap-x-40"
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+      <title>Document</title>
+    </head>
+    <body class="bg-neutral-100">
+      <div
+        class="bg-[url('https://tuk-cdn.s3.amazonaws.com/can-uploader/Blend%20Group%201.png')]"
         >
-          <form class="lg:w-[395px] my-auto lg:px-0 md:px-6 px-4 lg:pt-0 pt-6"  action="./analytics.html">
-            <img
+        <div>
+          <div
+            class="grid lg:grid-cols-2 grid-cols-1 mx-auto lg:justify-items-end align-items-centeralign-items-center my-auto gap-y-10 lg:gap-x-40"
+            >
+            <form class="lg:w-[395px] my-auto lg:px-0 md:px-6 px-4 lg:pt-0 pt-6"  action="./analytics.html">
+              <img
               src="https://tuk-cdn.s3.amazonaws.com/can-uploader/flying.svg"
               alt=""
-              class="pb-6 mx-auto"
-            />
-            <h1 class="text-zinc-900 font-bold text-[32px] pb-4 text-center">
+              class="pb-6 mx-auto">
+              <h1 class="text-zinc-900 font-bold text-[32px] pb-4 text-center">
               Login to your account
-            </h1>
-            <p
-              class="text-gray-600 text-xs font-normal lg:pb-8 pb-4 text-center"
-            >
-              Please login to get access to the dashboard.
-            </p>
-            <p class="font-medium text-sm text-zinc-800 lg:pb-3 pb-2">Email</p>
-            <input
-              type="text"
-              class="py-4 px-6 placeholder-zinc-400 font-normal border border-zinc-200 rounded-lg w-full lg:mb-4 mb-2"
-              placeholder="Enter your email"
-            />
-            <p class="font-medium text-sm text-zinc-800 lg:pb-3 pb-2">
-              Password
-            </p>
-            <div
-              class="py-4 px-6 border border-zinc-200 rounded-lg w-full mb-3 relative bg-white"
-            >
+              </h1>
+              <p
+                class="text-gray-600 text-xs font-normal lg:pb-8 pb-4 text-center"
+                >
+                Please login to get access to the dashboard.
+              </p>
+              <p class="font-medium text-sm text-zinc-800 lg:pb-3 pb-2">Email</p>
               <input
+              type="text"
+              class="py-4 px-6 placeholder-zinc-400 font-normal border border-zinc-200 rounded-lg w-full lg:mb-4 mb-2 focus:outline-none"
+              placeholder="Enter your email">
+              <p class="font-medium text-sm text-zinc-800 lg:pb-3 pb-2">
+                Password
+              </p>
+              <div
+                class="py-4 px-6 border border-zinc-200 rounded-lg w-full mb-3 relative bg-white"
+                >
+                <input
                 type="text"
-                class="placeholder-zinc-400 font-normal"
-                placeholder="Enter your password"
-              />
-              <img
+                class="placeholder-zinc-400 font-normal  focus:outline-none"
+                placeholder="Enter your password" >
+                <img
                 src="https://tuk-cdn.s3.amazonaws.com/can-uploader/eye.svg"
                 class="absolute right-2.5 top-5"
-                alt=""
-              />
-            </div>
-
-            <div class="flex gap-x-2 items-center lg:pb-8 pb-4">
-              <input type="checkbox" class="border-zinc-600 border rounded" />
-              <p class="text-sm text-gray-600">Remember me</p>
-            </div>
-            <button
+                alt="">
+              </div>
+              <div class="flex gap-x-2 items-center lg:pb-8 pb-4">
+                <input type="checkbox" class="border-zinc-600 border rounded">
+                <p class="text-sm text-gray-600">Remember me</p>
+              </div>
+              <button
               class="bg-zinc-900 text-white w-full py-2.5 w-full rounded-lg hover:bg-zinc-800 transition duration-300" type="submit"
-            >
+              >
               Login
-            </button>
-          </form>
-
-          <div
-            class="bg-zinc-900 flex items-center flex-col  bg-[url('https://tuk-cdn.s3.amazonaws.com/can-uploader/Blend%20Group%201.png')] min-h-screen"
-          >
-          <div class="my-auto">
-            <p
-              class="font-bold text-[32px] text-slate-50 font-['IBM Plex Sans'] pb-4 px-[72px]"
-            >
-              Repair Managment System
-            </p>
-            <p
-              class="font-normal font-['IBM Plex Sans'] text-base text-white/70 px-[72px] pb-16"
-            >
-              Resolve customer support tickets efficiently
-            </p>
-            <div>
-              <img
-              src="https://tuk-cdn.s3.amazonaws.com/can-uploader/dash.png"
-              alt=""
-              class="ml-auto"
-            />
-          </div>
-            
+              </button>
+            </form>
+            <div
+              class="bg-zinc-900 flex items-center flex-col  bg-[url('https://tuk-cdn.s3.amazonaws.com/can-uploader/Blend%20Group%201.png')] min-h-screen"
+              >
+              <div class="my-auto">
+                <p
+                  class="font-bold text-[32px] text-slate-50 font-['IBM Plex Sans'] pb-4 px-[72px]"
+                  >
+                  Repair Managment System
+                </p>
+                <p
+                  class="font-normal font-['IBM Plex Sans'] text-base text-white/70 px-[72px] pb-16"
+                  >
+                  Resolve customer support tickets efficiently
+                </p>
+                <div>
+                  <img
+                  src="https://tuk-cdn.s3.amazonaws.com/can-uploader/dash.png"
+                  alt=""
+                  class="ml-auto">
+                </div>
+              </div>
             </div>
-         
           </div>
-          <!-- <img
-            src="https://tuk-cdn.s3.amazonaws.com/can-uploader/gg.png"
-            alt="image-30"
-            class="w-full"
-          /> -->
         </div>
       </div>
-    </div>
-  </body>
-</html>
+    </body>
+  </html>
