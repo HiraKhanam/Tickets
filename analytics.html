@@ -34,6 +34,30 @@
       class="font-[Manrope] flex lg:flex-row flex-col min-h-screen relative"
      
     >
+    <div id="addTag" class=" bg-black/30 w-full backdrop-blur-sm absolute z-10 min-w-full min-h-full hidden">
+      <div class="lg:w-[384px] max-w-[384px]  absolute right-0 top-0 bottom-0">
+        <div  class="bg-white p-6 min-h-full ">
+          <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/close1.svg" alt="" width="13" height="13" class="pb-8 ml-auto cursor-pointer" onclick="closeAddTag()">
+
+     
+          <h1 class="text-black font-extrabold pb-6 border-b">Add Customer Issue Tag</h1>    
+          <div class="py-6 border-b border-zinc-200">
+              <h1 class="font-semibold text-sm pb-3 ">Tag title</h1>
+              <input type="text" placeholder="Mouse" class="p-[14px] rounded-md  border border-zinc-200 w-full">
+          </div>
+          <div class="pt-6 flex flex-column gap-y-2 flex-col">
+              <button class="text-white text-sm font-medium py-3 px-4 rounded-md bg-black w-full ">
+                  Add Tag
+              </button>
+              <button class="text-black text-sm font-medium py-3 px-4 rounded-md bg-white border w-full ">
+                  Cancel
+              </button>
+          </div>
+  
+
+          </div>
+      </div>
+    </div>
     <div  id="addMember" class=" bg-black/30 w-full backdrop-blur-sm absolute z-10 min-w-full min-h-full hidden">
       <div class="lg:w-[384px] max-w-[384px]  absolute right-0 top-0 bottom-0">
       <div  class="bg-white p-6 min-h-full ">
@@ -86,7 +110,9 @@
     <div id="deleteMember" class="hidden bg-black/30 w-full backdrop-blur-sm absolute z-10 min-w-full min-h-full  ">
       <div class="top-0 left-0 right-0 bottom-0 m-auto max-h-fit max-w-fit absolute">
         <div class="rounded-xl bg-white px-8 py-6 max-w-[481px]" >
-          <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/closeMenu.svg" width="20" height="20" alt="" class="flex justify-end ml-auto" onclick="closeDeleteMember()">
+          <button class="flex w-full justify-end" onclick="closeDeleteMember()">
+            <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/closeMenu.svg" width="20" height="20" alt="" class=" ml-auto" ></button>
+        
           <div class="flex flex-col justify-center text-center">
               <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/binpink.svg" alt="" width="48" height="48" class="pb-4 mx-auto">
               <h1 class="text-neutral-800 text-lg font-semibold pb-2">Confirm Delete?  </h1>
@@ -103,7 +129,8 @@
     <div id="confirmDelete" class="hidden bg-black/30 w-full backdrop-blur-sm absolute z-10 min-w-full min-h-full  ">
           <div class="top-0 left-0 right-0 bottom-0 m-auto max-h-fit max-w-fit absolute">
             <div class="rounded-xl bg-white px-8 py-6 max-w-[481px]">
-              <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/closeMenu.svg" width="20" height="20" alt="" class="flex justify-end ml-auto cursor-pointer" onclick="closeConfirmDelete()">
+              <button onclick="closeConfirmDelete()" class="flex justify-end w-full">   <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/closeMenu.svg" width="20" height="20" alt="" class="ml-auto cursor-pointer" ></button>
+           
                       <div class="flex flex-col justify-center text-center">
                           <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/binpink.svg" alt="" width="48" height="48" class="pb-4 mx-auto">
                            <h1 class="text-neutral-800 text-lg font-semibold pb-2">Deleteing team member(s)?  </h1>
@@ -923,7 +950,7 @@
             <p class="font-normal">Settings</p>
           </div>
           <div
-            class="py-3 px-4 flex gap-x-2 rounded-lg hover:bg-zinc-700 transition duration-300 items-center hover:text-white text-zinc-400"
+            class="py-3 px-4 flex gap-x-2 rounded-lg hover:bg-zinc-700 transition duration-300 items-center hover:text-white text-zinc-400" onclick="openTagManager()" id="g"
           >
             <img
               src="https://tuk-cdn.s3.amazonaws.com/can-uploader/tag.svg"
@@ -931,6 +958,15 @@
             />
             <p class="font-normal">Tag Manager</p>
           </div>
+          <div
+          class="py-3 px-4 flex gap-x-2 rounded-lg hover:bg-zinc-700 transition duration-300 items-center hover:text-white text-zinc-400" onclick="openWidgets()" id="f"
+        >
+          <img
+            src="https://tuk-cdn.s3.amazonaws.com/can-uploader/widgets.svg"
+            alt=""
+          />
+          <p class="font-normal">Widgets</p>
+        </div>
         </div>
         <div
           class="flex gap-x-2 items-center justify-center mt-auto cursor-pointer"
@@ -1150,9 +1186,11 @@
                   <p class="text-zinc-600 font-medium text-sm pb-4">
                     Total issues: 6
                   </p>
-                  <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/graphbar.svg
-
-                  " alt=""/>
+                  <div class="relative ">
+                    <div class="mx-auto w-60 h-60">
+                      <canvas id="myChart1" class="w-full"></canvas>
+                    </div>
+                  </div>
                 </div>
                 <div class="border border-zinc-200 p-5 rounded-xl">
                   <h1 class="text-zinc-900 font-extrabold text-xl pb-8">
@@ -1191,7 +1229,7 @@
           </div>
         </div>
         <div
-      class="bg-neutral-100 px-7 max-w-[1124px]  show1 " id="tickets"
+      class="bg-neutral-100 px-7 w-full show1 " id="tickets"
     >
       <div class="pt-8 pb-7 flex justify-between lg:flex-row flex-col gap-y-4">
         <div
@@ -1515,8 +1553,8 @@
       </div>
      
     </div>
-    <div  class="bg-neutral-100 px-7 max-w-[1124px] show1" id="customers">
-      <div class="pt-8 px-7 max-w-[1124px]">
+    <div  class="bg-neutral-100 px-7 w-full show1" id="customers">
+      <div class="pt-8 px-7 w-full">
         <div class="flex justify-end">
             <div class="border border-zinc-200 bg-white rounded-md p-4  lg:ml-auto  flex justify-between">
               <input
@@ -1729,9 +1767,9 @@
         </div>
       </div>
     </div>
-    <div class="bg-neutral-100 px-7 max-w-[1124px]  show1 " id="hardware">
-      <div class="pt-8 px-7 max-w-[1124px]">
-        <div class="flex justify-between lg:flex-row flex-col items-center gap-y-2 lg:px-0 md:mx-6 mx-4">
+    <div class="bg-neutral-100 px-7 w-full  show1 " id="hardware">
+      <div class="pt-8 px-7 w-full ">
+        <div class="flex justify-between lg:flex-row flex-col items-center gap-y-2 ">
           <button class="lg:py-3 py-2 lg:px-6 px-4 bg-zinc-900 text-sm text-white rounded-md font-medium">
               Add member
             </button>
@@ -1924,7 +1962,7 @@
       
     </div>
     <div >
-      <div class="pt-8 px-7 max-w-[1124px] show1" id="team">
+      <div class="pt-8 px-7 w-full  show1" id="team">
         <div class="flex justify-between lg:flex-row flex-col gap-y-2 items-center ">
           <div class="gap-x-4 flex">
             <button class="py-3 px-6 bg-zinc-900 text-sm text-white rounded-md font-medium" onclick="addMember()">
@@ -2291,8 +2329,232 @@
       </div>
     </div>
      
-  </div>
+    <div class="pt-8 px-7 w-full show1" id="tagManager">
+      <div class="flex justify-end">
+        <div class="border border-zinc-200 bg-white rounded-md p-4  lg:ml-auto  flex justify-between">
+          <input
+            type="text"
+            placeholder="Search members"
+            class="placeholder-zinc-400 lg:w-[310px] w-full focus:outline-none"
+          />
+          <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/search-outline1.svg" alt="" width="16" height="16">
+        </div>
+    </div>
+    <div class="grid lg:grid-cols-2 grid-cols-1 gap-7 pt-4">
+      <div class="bg-white border border-zinc-200 rounded-xl p-6">
+          <p class="text-black font-extrabold text-xl pb-6">Customer Issue Tags</p>
+          <div class="flex gap-4 flex-wrap">
+              <div class="py-3 px-4 text-white bg-black rounded-md">Mouse</div>
+              <div class="py-3 px-4 text-black bg-zinc-100 border border-zinc-200 rounded-md">Keyboard</div>
+              <div class="py-3 px-4 text-black bg-zinc-100 border border-zinc-200 rounded-md">Scroll</div>
+              <div class="py-3 px-4 text-black bg-zinc-100 border border-zinc-200 rounded-md">Sensitivity</div>
+              <div class="py-3 px-4 text-black bg-zinc-100 border border-zinc-200 rounded-md">Click</div>
+              <div class="py-3 px-4 text-black bg-zinc-100 border border-zinc-200 rounded-md">Movement</div>
+              <div class="py-3 px-4 text-black bg-zinc-100 border border-zinc-200 rounded-md">Button</div>
+              <div class="py-3 px-4 flex  gap-x-2.5 border-2 border-dashed border-zinc-900 cursor-pointer " onclick="addTag();">
+                  <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/r%20plus.svg" alt="" width="12" height="12">
+                  <p class="text-black">Add new tag</p>
+              </div>
+          </div>
+         
       </div>
+      <div class="bg-white border border-zinc-200 rounded-xl p-6">
+          <p class="text-black font-extrabold lg:text-xl text-sm  lg:pb-6 pb-2">Associated customer issues</p>
+          <div class="border border-zinc-200 rounded-xl p-2 ">
+              <table class="table-auto w-full">
+                  <thead>
+                      <tr>
+                          <td class="lg:text-lg text-sm font-medium text-black lg:p-4 p-2">Issue title</td>
+                          <td class="lg:text-lg text-sm font-medium text-black lg:p-4 p-2">Actions</td>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr class="border-b">
+                          <td class="lg:px-4 px-2 lg:py-6 py-4 text-zinc-600">Freezing of mouse cursor </td>
+                          <td> <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/eyeee.svg" alt="" width="20" height="20"></td>
+                      </tr>
+                      <tr class="border-b">
+                          <td class="lg:px-4 px-2 lg:py-6 py-4 text-zinc-600">Double click issue</td>
+                          <td> <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/eyeee.svg" alt="" width="20" height="20"></td>
+                      </tr>
+                      <tr class="border-b">
+                          <td class="lg:px-4 px-2 lg:py-6 py-4 text-zinc-600">Wheel issue</td>
+                          <td> <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/eyeee.svg" alt="" width="20" height="20"></td>
+                      </tr>
+                      <tr class="border-b">
+                          <td class="lg:px-4 px-2 lg:py-6 py-4 text-zinc-600">Right click issue</td>
+                          <td> <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/eyeee.svg" alt="" width="20" height="20"></td>
+                      </tr>
+                      <tr>
+                          <td class="lg:px-4 px-2 lg:py-6 py-4 text-zinc-600">Sensitivity issue</td>
+                          <td> <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/eyeee.svg" alt="" width="20" height="20"></td>
+                      </tr>
+                  </tbody>
+              </table>
+
+          </div>
+      </div>
+      <div class="bg-white border border-zinc-200 rounded-xl p-6">
+          <p class="text-black font-extrabold text-xl pb-6">Diagnosis Tags</p>
+          <div class="flex gap-4 flex-wrap">
+              <div class="py-3 px-4 text-white bg-black rounded-md">Mouse</div>
+              <div class="py-3 px-4 text-black bg-zinc-100 border border-zinc-200 rounded-md">Keyboard</div>
+              <div class="py-3 px-4 text-black bg-zinc-100 border border-zinc-200 rounded-md">Scroll</div>
+              <div class="py-3 px-4 text-black bg-zinc-100 border border-zinc-200 rounded-md">Sensitivity</div>
+              <div class="py-3 px-4 text-black bg-zinc-100 border border-zinc-200 rounded-md">Click</div>
+              <div class="py-3 px-4 text-black bg-zinc-100 border border-zinc-200 rounded-md">Movement</div>
+              <div class="py-3 px-4 text-black bg-zinc-100 border border-zinc-200 rounded-md">Button</div>
+              <div class="py-3 px-4 flex  gap-x-2.5 border-2 border-dashed border-zinc-900">
+                  <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/r%20plus.svg" alt="" width="12" height="12">
+                  <p class="text-black">Add new tag</p>
+              </div>
+          </div>
+         
+      </div>
+      <div class="bg-white border border-zinc-200 rounded-xl p-6">
+          <p class="text-black font-extrabold text-xl  pb-6">Associated Diagnosis</p>
+          <div class="border border-zinc-200 rounded-xl p-2">
+              <table class="table-auto w-full">
+                  <thead>
+                      <tr>
+                          <td class="text-lg font-medium text-black p-4">Issue title</td>
+                          <td class="text-lg font-medium text-black p-4">Actions</td>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr class="border-b">
+                          <td class="px-4 py-6 text-zinc-600">Freezing of mouse cursor </td>
+                          <td> <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/eyeee.svg" alt="" width="20" height="20"></td>
+                      </tr>
+                      <tr class="border-b">
+                          <td class="px-4 py-6 text-zinc-600">Double click issue</td>
+                          <td> <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/eyeee.svg" alt="" width="20" height="20"></td>
+                      </tr>
+                      <tr class="border-b">
+                          <td class="px-4 py-6 text-zinc-600">Wheel issue</td>
+                          <td> <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/eyeee.svg" alt="" width="20" height="20"></td>
+                      </tr>
+                      <tr class="border-b">
+                          <td class="px-4 py-6 text-zinc-600">Right click issue</td>
+                          <td> <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/eyeee.svg" alt="" width="20" height="20"></td>
+                      </tr>
+                      <tr class="border-b">
+                          <td class="px-4 py-6 text-zinc-600">Sensitivity issue</td>
+                          <td> <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/eyeee.svg" alt="" width="20" height="20"></td>
+                      </tr>
+                  </tbody>
+              </table>
+
+          </div>
+      </div>
+     </div>
+  </div>
+  <div class="pt-8 px-7 w-full show1" id="widgets">
+    <div class="p-4 rounded-md border border-zinc-200 max-w-[310px] flex justify-between ml-auto mb-4">
+      <input type="text" placeholder="Search Website" class="font-normal text-sm placeholder-zinc-400 ">
+      <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/search-outline.svg" width="16" height="16" alt="">
+  </div>
+  <div class="grid xl:grid-cols-2  grid-cols-1 gap-7">
+      <div class="p-6 border border-zinc-200 rounded-xl pb-4">
+          <h1 class="font-bold text-black  text-xl pb-8">Add Widgets</h1>
+          <div class="pb-4">
+              <h1 class="text-black pb-2 text-sm font-semibold">Name</h1>
+              <input type="text" placeholder="Enter title" class="placeholder-zinc-400 text-xs py-3 px-4 border border-zinc-200 rounded-md w-full">
+          </div>
+          <div class="pb-6">
+              <h1 class="text-black pb-2 text-sm font-semibold">URL</h1>
+              <input type="text" placeholder="Enter URL of the website" class="placeholder-zinc-400 text-xs py-3 px-4 border border-zinc-200 rounded-md w-full">
+          </div>
+          <button class="font-medium text-sm text-white bg-black py-3 px-6 rounded-md flex ml-auto">Add Widget</button>
+      </div>
+      <div class="p-6 border border-zinc-200 rounded-xl ">
+          <h1 class="font-bold text-black  text-xl pb-6">Add Widgets</h1>
+          <div class="p-2 rounded-lg border border-zinc-200">
+              <table class="table-auto w-full">
+                  <thead>
+                    <tr class="border-b border-zinc-200">
+                      <th class="text-black font-semibold text-lg p-4 text-left">Website</th>
+                      <th class="text-black font-semibold text-lg p-4 text-right">Actions</th>
+            
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr  class="border-b border-zinc-200">
+
+                      <td class="text-zinc-600 px-6 py-4 ">https://tumblr.com</td>
+                      <td class="flex justify-end gap-x-2 px-6 py-4"><img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/copy1.svg" alt="">
+                      <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/bins.svg" alt=""></td>
+                    </tr>
+                    <tr>
+                      <tr  class="border-b border-zinc-200">
+
+                          <td class="text-zinc-600 px-6 py-4 ">https://pinterest.com</td>
+                          <td class="flex justify-end px-6 py-4 gap-x-2"><img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/copy1.svg" alt="">
+                          <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/bins.svg" alt=""></td>
+                        </tr>
+                      <tr>
+                          <tr  class="border-b border-zinc-200">
+
+                              <td class="text-zinc-600 px-6 py-4 ">https://facebook.com</td>
+                              <td class="flex justify-end px-6 py-4 gap-x-2"><img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/copy1.svg" alt="">
+                              <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/bins.svg" alt=""></td>
+                            </tr>
+                          <tr>
+                              <tr  class="border-b border-zinc-200">
+
+                                  <td class="text-zinc-600 px-6 py-4 ">https://instagram.com</td>
+                                  <td class="flex justify-end px-6 py-4 gap-x-2"><img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/copy1.svg" alt="">
+                                  <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/bins.svg" alt=""></td>
+                                </tr>
+                              <tr>
+                                  <tr  class="border-b border-zinc-200">
+
+                                      <td class="text-zinc-600 px-6 py-4 ">https://mail.ru</td>
+                                      <td class="flex justify-end px-6 py-4 gap-x-2"><img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/copy1.svg" alt="">
+                                      <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/bins.svg" alt=""></td>
+                                    </tr>
+                                  <tr>
+                                      <tr  class="border-b border-zinc-200">
+
+                                          <td class="text-zinc-600 px-6 py-4 ">https://bing.com</td>
+                                          <td class="flex justify-end px-6 py-4 gap-x-2"><img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/copy1.svg" alt="">
+                                          <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/bins.svg" alt=""></td>
+                                        </tr>
+                                      <tr>
+                                          <tr  class="border-b border-zinc-200">
+
+                                              <td class="text-zinc-600 px-6 py-4 ">https://googleusercontent.com</td>
+                                              <td class="flex justify-end px-6 py-4 gap-x-2"><img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/copy1.svg" alt="">
+                                              <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/bins.svg" alt=""></td>
+                                            </tr>
+                                          <tr>
+                                              <tr  class="border-b border-zinc-200">
+
+                                                  <td class="text-zinc-600 px-6 py-4 ">https://soundcloud.com</td>
+                                                  <td class="flex justify-end px-6 py-4 gap-x-2"><img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/copy1.svg" alt="">
+                                                  <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/bins.svg" alt=""></td>
+                                                </tr>
+                                              <tr>
+                                                  <tr  class="border-b border-zinc-200">
+
+                                                      <td class="text-zinc-600 px-6 py-4 ">https://yandex.ru</td>
+                                                      <td class="flex justify-end px-6 py-4 gap-x-2"><img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/copy1.svg" alt="">
+                                                      <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/bins.svg" alt=""></td>
+                                                    </tr>
+                                                  <tr>
+                                                      <tr  class="border-b border-zinc-200">
+
+                                                          <td class="text-zinc-600 px-6 py-4 ">https://taobao.com</td>
+                                                          <td class="flex justify-end px-6 py-4 gap-x-2"><img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/copy1.svg" alt="">
+                                                          <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/bins.svg" alt=""></td>
+                                                        </tr>
+                                                      <tr>
+                    </tr>
+                  </tbody>
+                </table>
+          </div>
+      </div>
+  </div> </div>  </div>
      
      
     </div>
@@ -2394,6 +2656,13 @@
         document.getElementById("addMember").classList.add("hidden");
       
       }
+      function addTag(){
+        document.getElementById("addTag").classList.remove("hidden");
+      }
+      function closeAddTag(){
+        document.getElementById("addTag").classList.add("hidden");
+      
+      }
       var currentTab = 0;
 
       showTab(currentTab);
@@ -2451,6 +2720,14 @@
         tickets.classList.remove("show1");
         selectBox.innerHTML = "Tickets";
       }
+      function openTagManager(){
+        tagManager.classList.remove("show1");
+        selectBox.innerHTML = "Tags";
+      }
+      function openWidgets(){
+        widgets.classList.remove("show1");
+        selectBox.innerHTML = "Widgets";
+      }
       function openTeam() {
         team.classList.remove("show1");
         selectBox.innerHTML = "Team";
@@ -2485,7 +2762,53 @@
         ) {
           team.classList.add("show1");
         }
-      }
+        else if (
+          event.target.id != "g" &&  
+        tagManager.classList.contains("show1") == false
+        ) {
+          tagManager.classList.add("show1");
+        }
+        else if (
+          event.target.id != "f" &&  
+        widgets.classList.contains("show1") == false
+        ) {
+          widgets.classList.add("show1");
+        }
+      };
+      const sliceThickness = {
+        id: "sliceThickness",
+        beforeDraw(chart, plugins) {
+          let sliceThicknessPixel=[300];
+          console.log(   chart.getDatasetMeta(0).data[1].innerRadius)
+          sliceThicknessPixel.forEach((thickness,index)=>{
+            chart.getDatasetMeta(0).data[1].outerRadius=105
+            chart.getDatasetMeta(0).data[1].innerRadius=110
+
+          })
+        },
+      };
+
+      const ctx2 = document.getElementById("myChart1").getContext("2d");
+
+      var doughnutChart2 = new Chart(ctx2, {
+        type: "doughnut",
+        plugins: [sliceThickness],
+        data: {
+          datasets: [
+            {
+              label: "# of Votes",
+              cutout:100,
+              data: [80, 40, 80, 50, 30],
+              borderWidth: 0,
+              backgroundColor: [ "#14B8A6","#E5E7EB","#D946EF", "#3B82F6", "#22D3EE" ],
+              
+            },
+          ],
+        },
+        options: {
+          legend: { display: false },
+        },
+      });
     </script>
   </body>
 </html>
